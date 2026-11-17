@@ -1,0 +1,27 @@
+
+services:
+  rabbitmq:
+    image: rabbitmq:4-management #You can also use this mirror =>  docker-mirror.liara.ir/rabbitmq:4-management
+    container_name: rabbitmq-lab
+
+    hostname: rabbitmq
+
+    ports:
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:15672:15672"
+
+    environment:
+      RABBITMQ_DEFAULT_USER: labuser
+      RABBITMQ_DEFAULT_PASS: LabPassword123!
+
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  rabbitmq_data:

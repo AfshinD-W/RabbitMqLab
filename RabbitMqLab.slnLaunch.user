@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "ApiAndWorker",
+    "Projects": [
+      {
+        "Path": "src\\RabbitMqLab.Api\\RabbitMqLab.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express"
+      },
+      {
+        "Path": "src\\RabbitMqLab.Worker\\RabbitMqLab.Worker.csproj",
+        "Action": "Start",
+        "DebugTarget": "RabbitMqLab.Worker"
+      }
+    ]
+  }
+]
